@@ -1,0 +1,23 @@
+.game-area {
+    max-width: 800px;
+    margin: 0 auto;
+  &__players {
+        display: flex;
+        justify-content: space-between;
+        &__player {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 2.5px;
+            display: flex;
+            flex-direction: column;
+            max-height: 396px;
+            height: 300px;
+            align-items: center;
+            justify-content: space-between;
+            &__circle {
+                
+            }
+        }
+}
+}

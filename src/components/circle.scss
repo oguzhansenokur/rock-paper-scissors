@@ -1,0 +1,55 @@
+.circle{    
+    &.paper{
+       
+        background : linear-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%));
+    }
+    &.scissors{
+       
+        background : linear-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%));
+
+    }
+    &.rock{
+       
+        background : linear-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+    
+    }
+    
+    width: 175px;
+    height: auto;
+    padding: 30px;
+    border-radius: 100%;
+    height: 175px;
+    background-color: red;
+    &__inside-circle{
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        &.rock{
+            background-image: url('../images/icon-rock.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: auto;
+            background-size: 40%;
+        }
+        &.paper{
+            background-image: url('../images/icon-paper.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: auto;
+            background-size: 40%;
+        }
+        &.scissors{
+            background-image: url('../images/icon-scissors.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: auto;
+            background-size: 40%;
+        }
+    }
+}
+
+.row {
+display: flex;
+justify-content: space-between;
+}
