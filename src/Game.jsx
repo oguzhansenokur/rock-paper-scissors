@@ -18,44 +18,46 @@ export default function Game({ houseHoldCircle, selectedCircle }) {
     score
   } = useContext(MainContext);
   const [selectedsArray,setSelectedArray]=React.useState([houseHoldCircle,selectedCircle])
-
+  const resArr=[selectedCard,houseHold]
   useEffect(() => {
-    if (selectedCard === houseHold) {
+    if (resArr[0]  === resArr[1] ) {
       setMessage('DRAW');
       localStorage.setItem('score',score)
 
-      setSelectedCard('')
-     setHouseHold('')
+   
 
     } else if (
-      (selectedCard === 'rock' && houseHold === 'scissors') ||
-      (selectedCard === 'scissors' && houseHold === 'paper') ||
-      (selectedCard === 'paper' && houseHold === 'rock')
+      (resArr[0] === 'rock' && resArr[1] === 'scissors') ||
+      (resArr[0] === 'scissors' && resArr[1] === 'paper') ||
+      (resArr[0] === 'paper' && resArr[1] === 'rock')
     ) {
       setMessage('YOU WIN');
       setScore(score + 1);
       localStorage.setItem('score',score)
-      setSelectedCard('')
-        setHouseHold('')
+     
 
     } else if (
-      (houseHold === 'rock' && selectedCard === 'scissors') ||
-      (houseHold === 'scissors' && selectedCard === 'paper') ||
-      (houseHold === 'paper' && selectedCard === 'rock')
+      (resArr[1] === 'rock' && resArr[0]  === 'scissors') ||
+      (resArr[1]  === 'scissors' && resArr[0]  === 'paper') ||
+      (resArr[1]  === 'paper' && resArr[0]  === 'rock')
     ) {
       setMessage('YOU LOSE');
       if (score > 0) {
         setScore(score - 1);
         localStorage.setItem('score',score)
-        setSelectedCard('')
-        setHouseHold('')
+     
 
       }
     }
-    localStorage.setItem('score',score)
+ 
     setResult(true);
-    
-  }, [score]);
+    setNewScore()
+  }, []);
+
+
+  const setNewScore=()=>{
+   return localStorage.setItem('score',score)
+  }  
 
   const playAgain = () => {
     setStep(1);

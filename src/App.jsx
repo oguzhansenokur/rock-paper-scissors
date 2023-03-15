@@ -12,7 +12,7 @@ function App() {
   const [message, setMessage] = React.useState('');
   const [result, setResult] = React.useState(false);
   const [score, setScore] = React.useState(
-    localStorage.getItem('score') ? Number(localStorage.getItem('score')) : Number(0)
+    localStorage.getItem('score')!==null ? Number(localStorage.getItem('score')) : Number(0)
   );
   
   const data = {
